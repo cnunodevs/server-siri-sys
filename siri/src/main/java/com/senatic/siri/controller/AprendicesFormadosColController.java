@@ -11,12 +11,13 @@ import com.senatic.siri.model.mapper.AprFormColMapper;
 import com.senatic.siri.service.AprendicesFormadosColService;
 
 
+
 @Validated
 @RestController
 @RequestMapping("api/v1/aprendices-formados-col")
 public class AprendicesFormadosColController extends FormularioController<AprendicesFormadosColDTO, AprendicesFormadosCol, AprFormColMapper, AprendicesFormadosColService>{
 
-    public AprendicesFormadosColController(AprendicesFormadosColDTO dto, AprendicesFormadosCol pojo, AprFormColMapper mapper, AprendicesFormadosColService service){
+    public AprendicesFormadosColController(AprFormColMapper mapper, AprendicesFormadosColService service){
         super(service, mapper);
     }
     
