@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.senatic.siri.model.dto.AprendicesFormadosColDTO;
 import com.senatic.siri.model.entity.AprendicesFormadosCol;
@@ -97,7 +96,7 @@ public class AprendicesFormadosColController {
     @PutMapping
     public ResponseEntity<HttpStatus> handleUpdateRegister(@RequestBody AprendicesFormadosColDTO aprendizDTO)
             throws EntityNotFoundException {
-        if (aprendicesFormadosColService.handleAlreadyExistBy(aprendizDTO.getId())) {
+        if (aprendicesFormadosColService.handleAlreadyExistById(aprendizDTO.getId())) {
             throw new EntityNotFoundException("Exception message");
         }
         aprendicesFormadosColService.handleUpdate(aprFormColMapper.dtoToPojo(aprendizDTO));
