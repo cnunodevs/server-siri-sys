@@ -17,6 +17,8 @@ public interface GenericUseCases <T, U> {
     Optional<T> handleFindAllByExample(Example<T> example);
     Page<T> handleFindAllPaginate(Pageable pageable);
     Boolean handleAlreadyExist(T t);
+    Boolean handleAlreadyExistById(U u);
     void handleCreateNewRegister(T t);
+    void handleCreateNewListOfRegisters(List<T> list);
 
 }
