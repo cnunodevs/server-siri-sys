@@ -1,4 +1,4 @@
-package com.senatic.siri.respository;
+package com.senatic.siri.repository.common;
 
 import java.util.UUID;
 
@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.senatic.siri.model.entity.AprendicesExt;
 
-public interface AprendicesExtRepository extends JpaRepository<AprendicesExt, UUID> {
+public interface AsesoresRepository extends JpaRepository<AprendicesExt, UUID> {
     
 }

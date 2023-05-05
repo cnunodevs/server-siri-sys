@@ -1,4 +1,4 @@
-package com.senatic.siri.respository;
+package com.senatic.siri.repository;
 
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;

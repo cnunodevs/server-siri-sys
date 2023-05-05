@@ -1,4 +1,4 @@
-package com.senatic.siri.respository.common;
+package com.senatic.siri.repository.common;
 
 import java.util.UUID;
 
