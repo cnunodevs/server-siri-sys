@@ -64,5 +64,29 @@ public class AprendicesFormadosColServiceImpl implements AprendicesFormadosColSe
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
     }
+
+    @Override
+    public Boolean handleAlreadyExist(AprendicesFormadosCol t) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
+    }
+
+    @Override
+    public Boolean handleAlreadyExistById(UUID u) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExistById'");
+    }
+
+    @Override
+    public void handleCreateNewRegister(AprendicesFormadosCol t) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewRegister'");
+    }
+
+    @Override
+    public void handleCreateNewListOfRegisters(List<AprendicesFormadosCol> list) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewListOfRegisters'");
+    }
     
 }

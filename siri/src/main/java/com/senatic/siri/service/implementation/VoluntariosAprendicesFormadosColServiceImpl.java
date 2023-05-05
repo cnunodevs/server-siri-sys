@@ -65,5 +65,29 @@ public class VoluntariosAprendicesFormadosColServiceImpl implements VoluntariosA
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
     }
+
+    @Override
+    public Boolean handleAlreadyExist(VoluntariosAprendicesFormadosCol t) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
+    }
+
+    @Override
+    public Boolean handleAlreadyExistById(UUID u) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExistById'");
+    }
+
+    @Override
+    public void handleCreateNewRegister(VoluntariosAprendicesFormadosCol t) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewRegister'");
+    }
+
+    @Override
+    public void handleCreateNewListOfRegisters(List<VoluntariosAprendicesFormadosCol> list) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewListOfRegisters'");
+    }
     
 }
