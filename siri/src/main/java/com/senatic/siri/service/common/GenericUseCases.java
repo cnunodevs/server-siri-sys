@@ -13,7 +13,7 @@ public interface GenericUseCases <T, U> {
     void handleDelete(T t);
     void handleUpdate(T t);
     void handleDeleteById(U u);
-    Optional<T> handleFindOneByExample(Example<T> example, Pageable pageable);
+    Page<T> handleFindAllPaginateByExample(Example<T> example, Pageable pageable);
     Optional<T> handleFindAllByExample(Example<T> example);
     Page<T> handleFindAllPaginate(Pageable pageable);
 
