@@ -1,18 +1,19 @@
 package com.senatic.siri.model.mapper;
 
 import com.senatic.siri.model.dto.VoluntariosInternacionalesDTO;
+import com.senatic.siri.model.entity.VoluntariosInternacionales;
 import com.senatic.siri.model.mapper.common.GenericMapper;
 
-public class VoluntariosInternacionalesMapper implements GenericMapper<VoluntariosInternacionalesDTO, VoluntariosInternacionalesDTO> {
+public class VoluntariosInternacionalesMapper implements GenericMapper<VoluntariosInternacionales, VoluntariosInternacionalesDTO> {
 
     @Override
-    public VoluntariosInternacionalesDTO pojoToDto(VoluntariosInternacionalesDTO pojo) {
+    public VoluntariosInternacionalesDTO pojoToDto(VoluntariosInternacionales pojo) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'pojoToDto'");
     }
 
     @Override
-    public VoluntariosInternacionalesDTO dtoToPojo(VoluntariosInternacionalesDTO dto) {
+    public VoluntariosInternacionales dtoToPojo(VoluntariosInternacionalesDTO dto) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'dtoToPojo'");
     }
