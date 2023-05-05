@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.senatic.siri.model.entity.VoluntariosIntructoresFormadosCol;
+import com.senatic.siri.model.entity.VoluntariosInstructoresFormadosCol;
 import com.senatic.siri.repository.VoluntariosInstructoresFormadosColRepository;
 import com.senatic.siri.service.VoluntariosInstructoresFormadosColService;
 
@@ -24,18 +24,18 @@ public class VoluntariosInstructoresFormadosColServiceImpl implements Voluntario
     private final VoluntariosInstructoresFormadosColRepository voluntariosInstructoresFormadosColRepository;
 
     @Override
-    public List<VoluntariosIntructoresFormadosCol> handleListAll() {
+    public List<VoluntariosInstructoresFormadosCol> handleListAll() {
         return voluntariosInstructoresFormadosColRepository.findAll();
     }
 
     @Override
-    public void handleDelete(VoluntariosIntructoresFormadosCol t) {
+    public void handleDelete(VoluntariosInstructoresFormadosCol t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
     }
 
     @Override
-    public void handleUpdate(VoluntariosIntructoresFormadosCol t) {
+    public void handleUpdate(VoluntariosInstructoresFormadosCol t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
     }
@@ -47,23 +47,23 @@ public class VoluntariosInstructoresFormadosColServiceImpl implements Voluntario
     }
 
     @Override
-    public Optional<VoluntariosIntructoresFormadosCol> handleFindOneByExample(
-            Example<VoluntariosIntructoresFormadosCol> example, Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindOneByExample'");
-    }
-
-    @Override
-    public Optional<VoluntariosIntructoresFormadosCol> handleFindAllByExample(
-            Example<VoluntariosIntructoresFormadosCol> example) {
+    public Optional<VoluntariosInstructoresFormadosCol> handleFindAllByExample(
+            Example<VoluntariosInstructoresFormadosCol> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllByExample'");
     }
 
     @Override
-    public Page<VoluntariosIntructoresFormadosCol> handleFindAllPaginate(Pageable pageable) {
+    public Page<VoluntariosInstructoresFormadosCol> handleFindAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
+    }
+
+    @Override
+    public Page<VoluntariosInstructoresFormadosCol> handleFindAllPaginateByExample(
+            Example<VoluntariosInstructoresFormadosCol> example, Pageable pageable) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
     }
     
 }

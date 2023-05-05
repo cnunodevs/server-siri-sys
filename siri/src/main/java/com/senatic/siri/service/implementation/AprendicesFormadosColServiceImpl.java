@@ -47,13 +47,6 @@ public class AprendicesFormadosColServiceImpl implements AprendicesFormadosColSe
     }
 
     @Override
-    public Optional<AprendicesFormadosCol> handleFindOneByExample(Example<AprendicesFormadosCol> example,
-            Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindOneByExample'");
-    }
-
-    @Override
     public Optional<AprendicesFormadosCol> handleFindAllByExample(Example<AprendicesFormadosCol> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllByExample'");
@@ -63,6 +56,13 @@ public class AprendicesFormadosColServiceImpl implements AprendicesFormadosColSe
     public Page<AprendicesFormadosCol> handleFindAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
+    }
+
+    @Override
+    public Page<AprendicesFormadosCol> handleFindAllPaginateByExample(Example<AprendicesFormadosCol> example,
+            Pageable pageable) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
     }
     
 }
