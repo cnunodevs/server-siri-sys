@@ -1,5 +1,10 @@
 package com.senatic.siri.service;
 
-public interface AprendicesExtService {
+import java.util.UUID;
+
+import com.senatic.siri.model.entity.AprendicesExt;
+import com.senatic.siri.service.common.GenericUseCases;
+
+public interface AprendicesExtService extends GenericUseCases<AprendicesExt, UUID>  {
     
 }

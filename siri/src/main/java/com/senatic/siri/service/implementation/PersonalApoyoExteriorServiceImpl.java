@@ -9,26 +9,26 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.senatic.siri.model.entity.ExpertosInternacionales;
-import com.senatic.siri.service.ExpertosInternacionalService;
+import com.senatic.siri.model.entity.PersonalApoyoExterior;
+import com.senatic.siri.service.PersonalApoyoExteriorService;
 
 @Service
-public class ExpertosInternacionalServiceImpl implements ExpertosInternacionalService {
+public class PersonalApoyoExteriorServiceImpl implements PersonalApoyoExteriorService {
 
     @Override
-    public List<ExpertosInternacionales> handleListAll() {
+    public List<PersonalApoyoExterior> handleListAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleListAll'");
     }
 
     @Override
-    public void handleDelete(ExpertosInternacionales t) {
+    public void handleDelete(PersonalApoyoExterior t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
     }
 
     @Override
-    public void handleUpdate(ExpertosInternacionales t) {
+    public void handleUpdate(PersonalApoyoExterior t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
     }
@@ -40,32 +40,32 @@ public class ExpertosInternacionalServiceImpl implements ExpertosInternacionalSe
     }
 
     @Override
-    public Page<ExpertosInternacionales> handleFindAllPaginateByExample(Example<ExpertosInternacionales> example,
+    public Page<PersonalApoyoExterior> handleFindAllPaginateByExample(Example<PersonalApoyoExterior> example,
             Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
     }
 
     @Override
-    public Optional<ExpertosInternacionales> handleFindAllByExample(Example<ExpertosInternacionales> example) {
+    public Optional<PersonalApoyoExterior> handleFindAllByExample(Example<PersonalApoyoExterior> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllByExample'");
     }
 
     @Override
-    public Page<ExpertosInternacionales> handleFindAllPaginate(Pageable pageable) {
+    public Page<PersonalApoyoExterior> handleFindAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
     }
 
     @Override
-    public Boolean handleAlreadyExist(ExpertosInternacionales t) {
+    public Boolean handleAlreadyExist(PersonalApoyoExterior t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
     }
 
     @Override
-    public void handleCreateNewRegister(ExpertosInternacionales t) {
+    public void handleCreateNewRegister(PersonalApoyoExterior t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewRegister'");
     }
