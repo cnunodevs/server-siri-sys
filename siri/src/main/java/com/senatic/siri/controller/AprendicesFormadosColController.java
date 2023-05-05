@@ -42,7 +42,7 @@ public class AprendicesFormadosColController {
     private final AprendicesFormadosColService aprendicesFormadosColService;
     private final AprFormColMapper aprFormColMapper;
 
-    @GetMapping
+    @GetMapping("/paginate")
     public ResponseEntity<Page<AprendicesFormadosColDTO>> handleFindAllPaginate(
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "9") Integer size) {
@@ -75,8 +75,8 @@ public class AprendicesFormadosColController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PostMapping
-    public ResponseEntity<HttpStatus> handleCreateNewRegister(@RequestBody List<AprendicesFormadosColDTO> aprendicesDTO)
+    @PostMapping("/by-list")
+    public ResponseEntity<HttpStatus> handleCreateNewListOfRegister(@RequestBody List<AprendicesFormadosColDTO> aprendicesDTO)
             throws IllegalStateException {
         List<AprendicesFormadosCol> aprendices = aprendicesDTO.stream().map(aprFormColMapper::dtoToPojo).toList();
         aprendicesFormadosColService.handleCreateNewListOfRegisters(aprendices);
