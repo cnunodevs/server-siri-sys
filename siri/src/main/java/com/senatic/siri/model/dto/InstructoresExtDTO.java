@@ -1,5 +1,7 @@
 package com.senatic.siri.model.dto;
 
-public class InstructoresExtDTO {
+import com.senatic.siri.model.dto.common.FormularioDTO;
+
+public class InstructoresExtDTO implements FormularioDTO {
     
 }

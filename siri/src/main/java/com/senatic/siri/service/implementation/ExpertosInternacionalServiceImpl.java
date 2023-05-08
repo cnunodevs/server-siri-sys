@@ -69,5 +69,17 @@ public class ExpertosInternacionalServiceImpl implements ExpertosInternacionalSe
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewRegister'");
     }
+
+    @Override
+    public Boolean handleAlreadyExistById(UUID u) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExistById'");
+    }
+
+    @Override
+    public void handleCreateNewListOfRegisters(List<ExpertosInternacionales> list) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewListOfRegisters'");
+    }
     
 }

@@ -4,10 +4,10 @@ import org.springframework.stereotype.Service;
 
 import com.senatic.siri.model.dto.AprendicesFormadosColDTO;
 import com.senatic.siri.model.entity.AprendicesFormadosCol;
-import com.senatic.siri.model.mapper.common.FormularioMapper;
+import com.senatic.siri.model.mapper.common.GenericMapper;
 
 @Service
-public class AprFormColMapper implements FormularioMapper<AprendicesFormadosCol, AprendicesFormadosColDTO> {
+public class AprFormColMapper implements GenericMapper<AprendicesFormadosCol, AprendicesFormadosColDTO> {
 
     @Override
     public AprendicesFormadosColDTO pojoToDto(AprendicesFormadosCol pojo) {

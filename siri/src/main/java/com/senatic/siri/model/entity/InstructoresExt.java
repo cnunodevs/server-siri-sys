@@ -1,5 +1,7 @@
 package com.senatic.siri.model.entity;
 
-public class InstructoresExt {
+import com.senatic.siri.model.entity.common.FormularioEntity;
+
+public class InstructoresExt implements FormularioEntity {
     
 }

@@ -69,4 +69,16 @@ public class InstructoresExtServiceImpl implements InstructoresExtService {
         throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewRegister'");
     }
 
+    @Override
+    public Boolean handleAlreadyExistById(UUID u) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExistById'");
+    }
+
+    @Override
+    public void handleCreateNewListOfRegisters(List<InstructoresExt> list) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewListOfRegisters'");
+    }
+
 }

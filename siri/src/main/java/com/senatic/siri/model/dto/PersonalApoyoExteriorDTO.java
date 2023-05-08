@@ -1,5 +1,7 @@
 package com.senatic.siri.model.dto;
 
-public class PersonalApoyoExteriorDTO {
+import com.senatic.siri.model.dto.common.FormularioDTO;
+
+public class PersonalApoyoExteriorDTO implements FormularioDTO {
     
 }

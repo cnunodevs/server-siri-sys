@@ -1,5 +1,7 @@
 package com.senatic.siri.model.dto;
 
-public class ExpertosInternacionalDTO {
+import com.senatic.siri.model.dto.common.FormularioDTO;
+
+public class ExpertosInternacionalDTO implements FormularioDTO {
     
 }
