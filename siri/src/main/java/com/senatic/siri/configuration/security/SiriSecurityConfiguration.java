@@ -2,6 +2,7 @@ package com.senatic.siri.configuration.security;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -27,6 +28,7 @@ public class SiriSecurityConfiguration {
     
     private final JwtFilter jwtAuthenticationFilter;
     private final LogoutHandler logoutHandler;
+    @Value("${client.origin.allowedOrigins}")
     private String allowedOrigins;
 
     @Bean
