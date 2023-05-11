@@ -5,6 +5,8 @@ import java.util.UUID;
 import com.senatic.siri.model.entity.Pais.Ciudad;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,13 +32,11 @@ public class Institucion {
     private UUID id;
     private String codigo;
     private String nombre;
-
+    @Enumerated(EnumType.STRING)
     private String tipo;
-
     @ManyToOne
     @JoinColumn(name = "pais_fk")
     private Pais pais;
-    
     @ManyToOne
     @JoinColumn(name = "ciudad_fk")
     private Ciudad ciudad;
