@@ -1,9 +1,12 @@
 package com.senatic.siri.model.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.senatic.siri.model.dto.PersonalApoyoExteriorDTO;
 import com.senatic.siri.model.entity.PersonalApoyoExterior;
 import com.senatic.siri.model.mapper.common.GenericMapper;
 
+@Component
 public class PersonalApoyoExteriorMapper implements GenericMapper<PersonalApoyoExterior, PersonalApoyoExteriorDTO> {
 
     @Override

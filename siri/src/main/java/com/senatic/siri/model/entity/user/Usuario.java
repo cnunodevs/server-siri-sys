@@ -31,7 +31,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name="usuarios")
-public class User {
+public class Usuario {
     
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

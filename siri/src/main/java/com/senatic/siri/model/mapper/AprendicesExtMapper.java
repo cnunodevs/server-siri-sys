@@ -1,9 +1,12 @@
 package com.senatic.siri.model.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.senatic.siri.model.dto.AprendicesExtDTO;
 import com.senatic.siri.model.entity.AprendicesExt;
 import com.senatic.siri.model.mapper.common.GenericMapper;
 
+@Component
 public class AprendicesExtMapper implements GenericMapper<AprendicesExt, AprendicesExtDTO>{
 
     @Override

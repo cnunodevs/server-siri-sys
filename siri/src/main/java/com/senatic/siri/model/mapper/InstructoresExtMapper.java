@@ -1,9 +1,12 @@
 package com.senatic.siri.model.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.senatic.siri.model.dto.InstructoresExtDTO;
 import com.senatic.siri.model.entity.InstructoresExt;
 import com.senatic.siri.model.mapper.common.GenericMapper;
 
+@Component
 public class InstructoresExtMapper implements GenericMapper<InstructoresExt, InstructoresExtDTO> {
 
     @Override
@@ -17,5 +20,5 @@ public class InstructoresExtMapper implements GenericMapper<InstructoresExt, Ins
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'dtoToPojo'");
     }
-
+    
 }
