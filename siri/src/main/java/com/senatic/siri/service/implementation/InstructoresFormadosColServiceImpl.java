@@ -29,12 +29,6 @@ public class InstructoresFormadosColServiceImpl implements InstructoresFormadosC
     }
 
     @Override
-    public void handleDelete(InstructoresFormadosCol t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
-    }
-
-    @Override
     public void handleUpdate(InstructoresFormadosCol t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
@@ -63,12 +57,6 @@ public class InstructoresFormadosColServiceImpl implements InstructoresFormadosC
             Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
-    }
-
-    @Override
-    public Boolean handleAlreadyExist(InstructoresFormadosCol t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
     }
 
     @Override

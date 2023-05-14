@@ -22,12 +22,6 @@ public class ExpertosInternacionalServiceImpl implements ExpertosInternacionalSe
     }
 
     @Override
-    public void handleDelete(ExpertosInternacionales t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
-    }
-
-    @Override
     public void handleUpdate(ExpertosInternacionales t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
@@ -56,12 +50,6 @@ public class ExpertosInternacionalServiceImpl implements ExpertosInternacionalSe
     public Page<ExpertosInternacionales> handleFindAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
-    }
-
-    @Override
-    public Boolean handleAlreadyExist(ExpertosInternacionales t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
     }
 
     @Override

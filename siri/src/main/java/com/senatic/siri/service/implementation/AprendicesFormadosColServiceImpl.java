@@ -29,12 +29,6 @@ public class AprendicesFormadosColServiceImpl implements AprendicesFormadosColSe
     }
 
     @Override
-    public void handleDelete(AprendicesFormadosCol t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
-    }
-
-    @Override
     public void handleUpdate(AprendicesFormadosCol t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
@@ -64,13 +58,7 @@ public class AprendicesFormadosColServiceImpl implements AprendicesFormadosColSe
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
     }
-
-    @Override
-    public Boolean handleAlreadyExist(AprendicesFormadosCol t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
-    }
-
+    
     @Override
     public Boolean handleAlreadyExistById(UUID u) {
         // TODO Auto-generated method stub

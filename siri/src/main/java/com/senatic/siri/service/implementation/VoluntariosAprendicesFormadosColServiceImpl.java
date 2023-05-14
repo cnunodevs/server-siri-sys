@@ -29,12 +29,6 @@ public class VoluntariosAprendicesFormadosColServiceImpl implements VoluntariosA
     }
 
     @Override
-    public void handleDelete(VoluntariosAprendicesFormadosCol t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
-    }
-
-    @Override
     public void handleUpdate(VoluntariosAprendicesFormadosCol t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
@@ -64,12 +58,6 @@ public class VoluntariosAprendicesFormadosColServiceImpl implements VoluntariosA
             Example<VoluntariosAprendicesFormadosCol> example, Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
-    }
-
-    @Override
-    public Boolean handleAlreadyExist(VoluntariosAprendicesFormadosCol t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
     }
 
     @Override

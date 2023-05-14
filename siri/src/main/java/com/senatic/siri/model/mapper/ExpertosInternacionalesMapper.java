@@ -1,9 +1,12 @@
 package com.senatic.siri.model.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.senatic.siri.model.dto.ExpertosInternacionalDTO;
 import com.senatic.siri.model.entity.ExpertosInternacionales;
 import com.senatic.siri.model.mapper.common.GenericMapper;
 
+@Component
 public class ExpertosInternacionalesMapper implements GenericMapper<ExpertosInternacionales, ExpertosInternacionalDTO> {
 
     @Override

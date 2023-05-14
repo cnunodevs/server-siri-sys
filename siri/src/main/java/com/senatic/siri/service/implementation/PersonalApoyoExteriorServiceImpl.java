@@ -22,12 +22,6 @@ public class PersonalApoyoExteriorServiceImpl implements PersonalApoyoExteriorSe
     }
 
     @Override
-    public void handleDelete(PersonalApoyoExterior t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
-    }
-
-    @Override
     public void handleUpdate(PersonalApoyoExterior t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
@@ -56,12 +50,6 @@ public class PersonalApoyoExteriorServiceImpl implements PersonalApoyoExteriorSe
     public Page<PersonalApoyoExterior> handleFindAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
-    }
-
-    @Override
-    public Boolean handleAlreadyExist(PersonalApoyoExterior t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
     }
 
     @Override

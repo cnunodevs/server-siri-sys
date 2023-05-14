@@ -10,21 +10,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.senatic.siri.model.entity.AprendicesExt;
+import com.senatic.siri.repository.AprendicesExtRepository;
 import com.senatic.siri.service.AprendicesExtService;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class AprendicesExtServiceImpl implements AprendicesExtService {
+
+    private final AprendicesExtRepository repository;
 
     @Override
     public List<AprendicesExt> handleListAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleListAll'");
-    }
-
-    @Override
-    public void handleDelete(AprendicesExt t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
+        return repository.findAll();
     }
 
     @Override
@@ -56,13 +55,7 @@ public class AprendicesExtServiceImpl implements AprendicesExtService {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
     }
-
-    @Override
-    public Boolean handleAlreadyExist(AprendicesExt t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
-    }
-
+    
     @Override
     public void handleCreateNewRegister(AprendicesExt t) {
         // TODO Auto-generated method stub

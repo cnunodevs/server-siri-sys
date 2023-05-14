@@ -22,12 +22,6 @@ public class InstructoresExtServiceImpl implements InstructoresExtService {
     }
 
     @Override
-    public void handleDelete(InstructoresExt t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
-    }
-
-    @Override
     public void handleUpdate(InstructoresExt t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
@@ -55,12 +49,6 @@ public class InstructoresExtServiceImpl implements InstructoresExtService {
     public Page<InstructoresExt> handleFindAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
-    }
-
-    @Override
-    public Boolean handleAlreadyExist(InstructoresExt t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
     }
 
     @Override
