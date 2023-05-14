@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.senatic.siri.model.entity.AprendicesExt;
+import com.senatic.siri.model.entity.ExpertosInternacionales;
 
-public interface ExpertosInternacionalesRepository extends JpaRepository<AprendicesExt, UUID> {
+public interface ExpertosInternacionalesRepository extends JpaRepository<ExpertosInternacionales, UUID> {
     
 }

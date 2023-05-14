@@ -1,72 +1,19 @@
 package com.senatic.siri.service.implementation;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
-
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.senatic.siri.model.entity.InstructoresExt;
-import com.senatic.siri.service.InstructoresExtService;
+import com.senatic.siri.repository.InstructoresExtRepository;
+import com.senatic.siri.service.common.GenericImplementation;
+
+import jakarta.transaction.Transactional;
 
 @Service
-public class InstructoresExtServiceImpl implements InstructoresExtService {
+@Transactional
+public class InstructoresExtServiceImpl extends GenericImplementation<InstructoresExt> {
 
-    @Override
-    public List<InstructoresExt> handleListAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleListAll'");
-    }
-
-    @Override
-    public void handleUpdate(InstructoresExt t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
-    }
-
-    @Override
-    public void handleDeleteById(UUID u) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDeleteById'");
-    }
-
-    @Override
-    public Page<InstructoresExt> handleFindAllPaginateByExample(Example<InstructoresExt> example, Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
-    }
-
-    @Override
-    public Optional<InstructoresExt> handleFindAllByExample(Example<InstructoresExt> example) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllByExample'");
-    }
-
-    @Override
-    public Page<InstructoresExt> handleFindAllPaginate(Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
-    }
-
-    @Override
-    public void handleCreateNewRegister(InstructoresExt t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewRegister'");
-    }
-
-    @Override
-    public Boolean handleAlreadyExistById(UUID u) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExistById'");
-    }
-
-    @Override
-    public void handleCreateNewListOfRegisters(List<InstructoresExt> list) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewListOfRegisters'");
+    public InstructoresExtServiceImpl(InstructoresExtRepository repository) {
+        super(repository);
     }
 
 }

@@ -1,7 +1,6 @@
 package com.senatic.siri.service.common;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -13,7 +12,7 @@ public interface GenericUseCases <T, U> {
     void handleUpdate(T t);
     void handleDeleteById(U u);
     Page<T> handleFindAllPaginateByExample(Example<T> example, Pageable pageable);
-    Optional<T> handleFindAllByExample(Example<T> example);
+    List<T> handleFindAllByExample(Example<T> example);
     Page<T> handleFindAllPaginate(Pageable pageable);
     Boolean handleAlreadyExistById(U u);
     void handleCreateNewRegister(T t);

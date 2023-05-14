@@ -1,80 +1,19 @@
 package com.senatic.siri.service.implementation;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
-
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.senatic.siri.model.entity.AprendicesFormadosCol;
 import com.senatic.siri.repository.AprendicesFormadosColRepository;
-import com.senatic.siri.service.AprendicesFormadosColService;
+import com.senatic.siri.service.common.GenericImplementation;
 
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 
 @Service
 @Transactional
-@RequiredArgsConstructor
-public class AprendicesFormadosColServiceImpl implements AprendicesFormadosColService {
+public class AprendicesFormadosColServiceImpl extends GenericImplementation<AprendicesFormadosCol> {
 
-    private final AprendicesFormadosColRepository aprendicesFormadosColRepository;
-
-    @Override
-    public List<AprendicesFormadosCol> handleListAll() {
-        return aprendicesFormadosColRepository.findAll();
-    }
-
-    @Override
-    public void handleUpdate(AprendicesFormadosCol t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
-    }
-
-    @Override
-    public void handleDeleteById(UUID u) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDeleteById'");
-    }
-
-    @Override
-    public Optional<AprendicesFormadosCol> handleFindAllByExample(Example<AprendicesFormadosCol> example) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllByExample'");
-    }
-
-    @Override
-    public Page<AprendicesFormadosCol> handleFindAllPaginate(Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
-    }
-
-    @Override
-    public Page<AprendicesFormadosCol> handleFindAllPaginateByExample(Example<AprendicesFormadosCol> example,
-            Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
-    }
-    
-    @Override
-    public Boolean handleAlreadyExistById(UUID u) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExistById'");
-    }
-
-    @Override
-    public void handleCreateNewRegister(AprendicesFormadosCol t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewRegister'");
-    }
-
-    @Override
-    public void handleCreateNewListOfRegisters(List<AprendicesFormadosCol> list) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewListOfRegisters'");
+    public AprendicesFormadosColServiceImpl(AprendicesFormadosColRepository aprendicesFormadosColRepository) {
+        super(aprendicesFormadosColRepository);
     }
     
 }
