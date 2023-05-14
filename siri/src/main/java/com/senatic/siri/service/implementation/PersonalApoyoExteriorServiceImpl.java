@@ -15,5 +15,10 @@ public class PersonalApoyoExteriorServiceImpl extends GenericImplementation<Pers
     public PersonalApoyoExteriorServiceImpl(PersonalApoyoExteriorRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Boolean handleAlreadyExist(PersonalApoyoExterior t) {
+        return repository.findById(t.getId()).isPresent();
+    }
     
 }

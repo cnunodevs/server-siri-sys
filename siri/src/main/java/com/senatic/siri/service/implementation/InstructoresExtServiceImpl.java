@@ -16,4 +16,9 @@ public class InstructoresExtServiceImpl extends GenericImplementation<Instructor
         super(repository);
     }
 
+    @Override
+    public Boolean handleAlreadyExist(InstructoresExt t) {
+        return repository.findById(t.getId()).isPresent();
+    }
+
 }

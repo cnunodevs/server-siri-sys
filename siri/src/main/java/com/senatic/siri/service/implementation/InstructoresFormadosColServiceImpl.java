@@ -16,4 +16,9 @@ public class InstructoresFormadosColServiceImpl extends GenericImplementation<In
         super(instructoresFormadosColRepository);
     }
     
+    @Override
+    public Boolean handleAlreadyExist(InstructoresFormadosCol t) {
+        return repository.findById(t.getId()).isPresent();
+    }
+
 }

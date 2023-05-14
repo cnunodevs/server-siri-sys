@@ -16,5 +16,10 @@ public class VoluntariosAprendicesFormadosColServiceImpl extends GenericImplemen
     public VoluntariosAprendicesFormadosColServiceImpl(VoluntariosAprendicesFormadosColRepository voluntariosAprendicesFormadosColRepository) {
         super(voluntariosAprendicesFormadosColRepository);
     }
+
+    @Override
+    public Boolean handleAlreadyExist(VoluntariosAprendicesFormadosCol t) {
+        return repository.findById(t.getId()).isPresent();
+    }
     
 }

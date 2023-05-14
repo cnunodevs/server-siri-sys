@@ -60,6 +60,16 @@ public class GenericImplementation <T> implements GenericUseCases<T, UUID> {
     public void handleCreateNewListOfRegisters(List<T> list) {
         repository.saveAll(list);
     }
+
+    @Override
+    public void handleDelete(T t) {
+        repository.delete(t);
+    }
+
+    @Override
+    public Boolean handleAlreadyExist(T t) {
+        return repository.findOne(Example.of(t)).isPresent();
+    }
     
 
 

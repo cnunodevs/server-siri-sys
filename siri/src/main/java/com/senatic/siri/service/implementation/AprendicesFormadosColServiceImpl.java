@@ -15,5 +15,10 @@ public class AprendicesFormadosColServiceImpl extends GenericImplementation<Apre
     public AprendicesFormadosColServiceImpl(AprendicesFormadosColRepository aprendicesFormadosColRepository) {
         super(aprendicesFormadosColRepository);
     }
-    
+
+    @Override
+    public Boolean handleAlreadyExist(AprendicesFormadosCol t) {
+        return repository.findById(t.getId()).isPresent();
+    }
+
 }

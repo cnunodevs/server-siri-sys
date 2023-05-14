@@ -16,4 +16,9 @@ public class VoluntariosInternacionalesServiceImpl extends GenericImplementation
         super(repository);
     }
     
+    @Override
+    public Boolean handleAlreadyExist(VoluntariosInternacionales t) {
+        return repository.findById(t.getId()).isPresent();
+    }
+
 }

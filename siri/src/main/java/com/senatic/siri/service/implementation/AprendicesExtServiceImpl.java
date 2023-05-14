@@ -15,5 +15,10 @@ public class AprendicesExtServiceImpl extends GenericImplementation<AprendicesEx
     public AprendicesExtServiceImpl(AprendicesExtRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Boolean handleAlreadyExist(AprendicesExt t) {
+        return repository.findById(t.getId()).isPresent();
+    }
     
 }

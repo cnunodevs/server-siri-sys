@@ -15,5 +15,10 @@ public class ExpertosInternacionalServiceImpl extends GenericImplementation<Expe
     public ExpertosInternacionalServiceImpl(ExpertosInternacionalesRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Boolean handleAlreadyExist(ExpertosInternacionales t) {
+        return repository.findById(t.getId()).isPresent();
+    }
     
 }
