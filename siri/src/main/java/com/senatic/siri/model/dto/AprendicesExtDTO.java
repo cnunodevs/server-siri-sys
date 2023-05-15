@@ -24,10 +24,10 @@ public class AprendicesExtDTO implements FormularioDTO {
 
     private LocalDateTime fechaFinal;
 
-    private UUID idPais;
+    private PaisDTO pais;
 
-    private UUID idInstitucion;
+    private InstitucionDTO institucion;
 
-    private UUID idConvenio;
+    private ConvenioDTO convenio;
 
 }

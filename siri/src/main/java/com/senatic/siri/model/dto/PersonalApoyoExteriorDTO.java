@@ -26,8 +26,8 @@ public class PersonalApoyoExteriorDTO implements FormularioDTO {
 
     private LocalDateTime fechaFinal;
 
-    private UUID idInstitucion;
+    private InstitucionDTO institucion;
 
-    private UUID idAsesor;
+    private AsesorDTO asesor;
 
 }

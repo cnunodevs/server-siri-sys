@@ -24,12 +24,12 @@ public class ExpertosInternacionalDTO implements FormularioDTO {
 
     private LocalDateTime fechaFinal;
 
-    private UUID idPais;
+    private PaisDTO pais;
 
-    private UUID idInstitucion;
+    private InstitucionDTO institucion;
 
-    private UUID idAsesor;
+    private AsesorDTO asesor;
 
-    private UUID idConvenio;
+    private ConvenioDTO convenio;
 
 }

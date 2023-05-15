@@ -24,10 +24,10 @@ public class VoluntariosInternacionalesDTO implements FormularioDTO {
 
     private LocalDateTime fechaFinal;
 
-    private UUID idPais;
+    private PaisDTO pais;
 
-    private UUID idAsesor;
+    private AsesorDTO asesor;
 
-    private UUID idConvenio;
+    private ConvenioDTO convenio;
 
 }
