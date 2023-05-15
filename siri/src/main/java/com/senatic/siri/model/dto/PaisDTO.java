@@ -1,6 +1,5 @@
 package com.senatic.siri.model.dto;
 
-import java.util.List;
 import java.util.UUID;
 
 import lombok.Builder;
@@ -12,14 +11,6 @@ public class PaisDTO {
     
     private UUID id;
     private String nombre;
-    private List<CiudadDTO> ciudades;
-
-    @Data
-    @Builder
-    public static class CiudadDTO {
-        private UUID id;
-        private String nombre;
-        private UUID idPais;
-    }
+    private String abreviatura;
 
 }

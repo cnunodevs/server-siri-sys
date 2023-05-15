@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.senatic.siri.model.entity.Convenio;
+import com.senatic.siri.model.entity.Pais;
 
-public interface ConveniosRepository extends JpaRepository<Convenio, UUID> {
-    
+public interface PaisRepository extends JpaRepository<Pais, UUID> {
+
 }

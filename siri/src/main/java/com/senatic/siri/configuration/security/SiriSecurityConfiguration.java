@@ -25,7 +25,7 @@ import jakarta.servlet.http.HttpServletRequest;
 @Configuration
 @RequiredArgsConstructor
 public class SiriSecurityConfiguration {
-    
+
     private final JwtFilter jwtAuthenticationFilter;
     private final LogoutHandler logoutHandler;
     @Value("${client.origin.allowedOrigins}")
@@ -33,7 +33,6 @@ public class SiriSecurityConfiguration {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
 
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
@@ -53,17 +52,14 @@ public class SiriSecurityConfiguration {
                 .and()
                 .csrf().disable()
                 .addFilterBefore(jwtAuthenticationFilter, BasicAuthenticationFilter.class)
-                /* .authorizeHttpRequests()
-                .requestMatchers("api/v1/presupuestos", "api/v1/presupuestos/metricas**", "api/v1/presupuestos/all**", 
-                        "api/v1/movimientos", "api/v1/movimientos/**",
-                        "api/v1/balance/**",
-                        "api/v1/ahorros", "api/v1/ahorros/metricas", "api/v1/ahorros/metricas/**", "api/v1/ahorros/ahorros-automaticos**", "api/v1/ahorros**",
-                        "api/v1/ahorros/transferencia-hacia-disponible", "api/v1/ahorros/transferencia-desde-disponible",
-                        "api/v1/chat/**", "api/v1/condiciones/**", "api/v1/inversiones/**",
-                        "api/v1/objetivos/**", "api/v1/portafolios/**", "api/v1/presupuestos/**")
-                .hasRole("USUARIO")
-                .requestMatchers("api/v1/auth**", "api/v1/usuarios/new-user**", "api/v1/usuarios**").permitAll() */
-                /* .and() */
+                .authorizeHttpRequests()
+                .requestMatchers("/paginate", "/search")
+                .hasAnyRole("USUARIO", "SUPERVISOR", "ADMINISTRADOR")
+                .requestMatchers("pais/", "ciudad/", "convenio/", "asesor/", "institucion/", "delete/")
+                .hasRole("ADMINISTRADOR")
+                .requestMatchers("add/", "edit/").hasAnyRole("SUPERVISOR", "ADMINISTRADOR")
+                .requestMatchers("api/v1/auth**", "api/v1/usuarios/new-user**", "api/v1/usuarios**").permitAll()
+                .and()
                 .logout()
                 .logoutUrl("/api/v1/auth/logout").permitAll()
                 .addLogoutHandler(logoutHandler)
