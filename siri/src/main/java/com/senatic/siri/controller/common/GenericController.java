@@ -15,10 +15,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.senatic.siri.model.mapper.common.GenericMapper;
@@ -74,8 +74,8 @@ public class GenericController<D, P> {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<HttpStatus> handleDeleteRegisterById(@PathVariable UUID id)
+    @DeleteMapping
+    public ResponseEntity<HttpStatus> handleDeleteRegisterById(@RequestParam("id") UUID id)
             throws EntityNotFoundException {
         if (service.handleAlreadyExistById(id)) {
             throw new EntityNotFoundException("Exception message");
