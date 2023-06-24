@@ -10,8 +10,8 @@ import java.util.function.Function;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.senatic.siri.administracion.repository.UsuariosRepository;
 import com.senatic.siri.configuration.security.constant.SecurityConstants;
-import com.senatic.siri.repository.user.UserRepository;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -24,7 +24,7 @@ import io.jsonwebtoken.security.Keys;
 public class JwtService {
 
     private final String SECRET_KEY = SecurityConstants.JWT_KEY;
-    private final UserRepository usuariosRepository;
+    private final UsuariosRepository usuariosRepository;
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -44,8 +44,7 @@ public class JwtService {
             UserDetails userDetails) {
         Map<String, Object> rolesClaim = new HashMap<>();
         rolesClaim.put("role", userDetails.getAuthorities().stream().findFirst().get().getAuthority());
-        // rolesClaim.put("uuid", usuariosRepository.findFirstByUsername(userDetails.getUsername()).get().getId());
-        rolesClaim.put("uuid", usuariosRepository.findFirstByUsername(userDetails.getUsername()).get().getId());
+        rolesClaim.put("id", usuariosRepository.findFirstByUsername(userDetails.getUsername()).get().getId());
         return Jwts
                 .builder()
                 .setClaims(extraClaims)

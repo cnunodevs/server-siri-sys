@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.senatic.siri.model.entity.user.Usuario;
-import com.senatic.siri.repository.user.UserRepository;
+import com.senatic.siri.administracion.model.Usuario;
+import com.senatic.siri.administracion.repository.UsuariosRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AppUserDetailsService implements UserDetailsService {
 
-    private final UserRepository usuariosRepository;
+    private final UsuariosRepository usuariosRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
