@@ -26,7 +26,7 @@ import com.senatic.siri.administracion.service.PaisesService;
 import jakarta.persistence.EntityNotFoundException;
 
 @RestController
-@RequestMapping("api/v1/pais")
+@RequestMapping("api/v1/paises")
 public class PaisesController {
 
     private final PaisesService service;
