@@ -7,8 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.senatic.siri.administracion.model.Asesor;
-import com.senatic.siri.administracion.repository.AsesoresRepository;
+import com.senatic.siri.administracion.model.Convenio;
+import com.senatic.siri.administracion.repository.ConveniosRepository;
 import com.senatic.siri.common.GenericUseCases;
 
 import jakarta.transaction.Transactional;
@@ -17,24 +17,24 @@ import lombok.RequiredArgsConstructor;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class AsesoresService implements GenericUseCases<Asesor, Integer> {
+public class ConveniosService implements GenericUseCases<Convenio, Integer> {
 
-    private final AsesoresRepository repository;
+    private final ConveniosRepository repository;
 
     @Override
-    public List<Asesor> handleListAll() {
+    public List<Convenio> handleListAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleListAll'");
     }
 
     @Override
-    public void handleUpdate(Asesor t) {
+    public void handleUpdate(Convenio t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
     }
 
     @Override
-    public void handleDelete(Asesor t) {
+    public void handleDelete(Convenio t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
     }
@@ -46,25 +46,25 @@ public class AsesoresService implements GenericUseCases<Asesor, Integer> {
     }
 
     @Override
-    public Page<Asesor> handleFindAllPaginateByExample(Example<Asesor> example, Pageable pageable) {
+    public Page<Convenio> handleFindAllPaginateByExample(Example<Convenio> example, Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
     }
 
     @Override
-    public List<Asesor> handleFindAllByExample(Example<Asesor> example) {
+    public List<Convenio> handleFindAllByExample(Example<Convenio> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllByExample'");
     }
 
     @Override
-    public Page<Asesor> handleFindAllPaginate(Pageable pageable) {
+    public Page<Convenio> handleFindAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
     }
 
     @Override
-    public Boolean handleAlreadyExist(Asesor t) {
+    public Boolean handleAlreadyExist(Convenio t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
     }
@@ -76,16 +76,16 @@ public class AsesoresService implements GenericUseCases<Asesor, Integer> {
     }
 
     @Override
-    public void handleCreateNewRegister(Asesor t) {
+    public void handleCreateNewRegister(Convenio t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewRegister'");
     }
 
     @Override
-    public void handleCreateNewListOfRegisters(List<Asesor> list) {
+    public void handleCreateNewListOfRegisters(List<Convenio> list) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewListOfRegisters'");
     }
 
-
+    
 }

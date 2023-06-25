@@ -1,7 +1,6 @@
 package com.senatic.siri.administracion.model;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,8 +24,8 @@ import lombok.NoArgsConstructor;
 public class Convenio {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String codigo;
     private LocalDateTime fechaInicial;
     private LocalDateTime fechaFinal;

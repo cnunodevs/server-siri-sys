@@ -26,8 +26,8 @@ import lombok.NoArgsConstructor;
 public class Institucion {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String codigo;
     private String nombre;
     @Enumerated(EnumType.STRING)

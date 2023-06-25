@@ -1,6 +1,5 @@
 package com.senatic.siri.administracion.model;
 
-import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,8 +21,8 @@ import lombok.NoArgsConstructor;
 public class Asesor {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String nombre;
     private String apellido;
     private String profesion;

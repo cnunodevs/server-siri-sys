@@ -20,63 +20,63 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senatic.siri.administracion.model.Institucion;
-import com.senatic.siri.administracion.service.InstitucionesService;
+import com.senatic.siri.administracion.model.Pais;
+import com.senatic.siri.administracion.service.PaisesService;
 
 import jakarta.persistence.EntityNotFoundException;
 
 @RestController
-@RequestMapping("api/v1/instituciones")
-public class InstitucionesController {
+@RequestMapping("api/v1/pais")
+public class PaisesController {
 
-    private final InstitucionesService service;
+    private final PaisesService service;
 
-    public InstitucionesController(InstitucionesService service) {
+    public PaisesController(PaisesService service) {
         this.service = service;
     }
 
     @GetMapping("list/all")
-    public ResponseEntity<List<Institucion>> handleListAllRegisters() {
-        List<Institucion> listPOJO = service.handleListAll();
+    public ResponseEntity<List<Pais>> handleListAllRegisters() {
+        List<Pais> listPOJO = service.getAllPaises();
         return ResponseEntity.status(HttpStatus.OK).body(listPOJO);
     }
 
     @GetMapping("list/paginate")
-    public ResponseEntity<Page<Institucion>> handleFindAllPaginate(
+    public ResponseEntity<Page<Pais>> handleFindAllPaginate(
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "9") Integer size) {
         Pageable paging = PageRequest.of(page, size);
-        Page<Institucion> listPOJO = service.handleFindAllPaginate(paging);
+        Page<Pais> listPOJO = service.getAllPaisesPaginated(paging);
         return ResponseEntity.status(HttpStatus.OK).body(listPOJO);
     }
 
     @PostMapping("create")
-    public ResponseEntity<HttpStatus> handleCreateNewRegister(@RequestBody Institucion institucion) {
-        if (service.handleAlreadyExistById(institucion.getId())) {
-            throw new IllegalStateException("Institucion already exists");
+    public ResponseEntity<HttpStatus> handleCreateNewRegister(@RequestBody Pais pais) {
+        if (service.paisExists(pais.getId())) {
+            throw new IllegalStateException("Pais already exists");
         }
-        service.handleCreateNewRegister(institucion);
+        service.createPais(pais);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping("update/by-id/{id}")
     public ResponseEntity<HttpStatus> handleUpdateRegister(
-            @RequestBody Institucion institucion,
+            @RequestBody Pais pais,
             @PathVariable("id") Integer id) {
-        if (!service.handleAlreadyExistById(id)) {
-            throw new EntityNotFoundException("Institucion not found");
+        if (!service.paisExists(id)) {
+            throw new EntityNotFoundException("Pais not found");
         }
-        institucion.setId(id);
-        service.handleUpdate(institucion);
+        pais.setId(id);
+        service.updatePais(pais);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @DeleteMapping("delete/by-id/{id}")
     public ResponseEntity<HttpStatus> handleDeleteRegisterById(@PathVariable("id") Integer id) {
-        if (!service.handleAlreadyExistById(id)) {
-            throw new EntityNotFoundException("Institucion not found");
+        if (!service.paisExists(id)) {
+            throw new EntityNotFoundException("Pais not found");
         }
-        service.handleDeleteById(id);
+        service.deletePaisById(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
