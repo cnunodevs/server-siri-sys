@@ -1,7 +1,6 @@
 package com.senatic.siri.formularios.model;
 
 import java.util.Date;
-import java.util.UUID;
 
 import com.senatic.siri.administracion.model.Convenio;
 import com.senatic.siri.administracion.model.Institucion;
@@ -28,8 +27,8 @@ import lombok.NoArgsConstructor;
 public class VoluntariosInstructoresFormadosCol {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
-  private UUID id;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
   @Column(length = 250, nullable = false)
   private String objetoFormacion;
   @ManyToOne

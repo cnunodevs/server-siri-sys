@@ -1,7 +1,6 @@
 package com.senatic.siri.formularios.model;
 
 import java.util.Date;
-import java.util.UUID;
 
 import com.senatic.siri.administracion.model.Convenio;
 
@@ -24,8 +23,8 @@ import lombok.NoArgsConstructor;
 public class AprendicesFormadosCol {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String nombre;
     private String apellido;
     private String documento;

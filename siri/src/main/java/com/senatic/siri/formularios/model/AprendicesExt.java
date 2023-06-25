@@ -31,9 +31,6 @@ public class AprendicesExt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long no;
-
     private String objetoFormacion;
 
     private String programaFormacion;
