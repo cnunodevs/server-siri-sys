@@ -37,7 +37,7 @@ public class PaisesController {
 
     @GetMapping("list/all")
     public ResponseEntity<List<Pais>> handleListAllRegisters() {
-        List<Pais> listPOJO = service.getAllPaises();
+        List<Pais> listPOJO = service.handleListAll();
         return ResponseEntity.status(HttpStatus.OK).body(listPOJO);
     }
 
@@ -46,16 +46,16 @@ public class PaisesController {
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "9") Integer size) {
         Pageable paging = PageRequest.of(page, size);
-        Page<Pais> listPOJO = service.getAllPaisesPaginated(paging);
+        Page<Pais> listPOJO = service.handleFindAllPaginate(paging);
         return ResponseEntity.status(HttpStatus.OK).body(listPOJO);
     }
 
     @PostMapping("create")
     public ResponseEntity<HttpStatus> handleCreateNewRegister(@RequestBody Pais pais) {
-        if (service.paisExists(pais.getId())) {
+        if (service.handleAlreadyExistById(pais.getId())) {
             throw new IllegalStateException("Pais already exists");
         }
-        service.createPais(pais);
+        service.handleCreateNewRegister(pais);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -63,20 +63,20 @@ public class PaisesController {
     public ResponseEntity<HttpStatus> handleUpdateRegister(
             @RequestBody Pais pais,
             @PathVariable("id") Integer id) {
-        if (!service.paisExists(id)) {
+        if (!service.handleAlreadyExistById(id)) {
             throw new EntityNotFoundException("Pais not found");
         }
         pais.setId(id);
-        service.updatePais(pais);
+        service.handleUpdate(pais);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @DeleteMapping("delete/by-id/{id}")
     public ResponseEntity<HttpStatus> handleDeleteRegisterById(@PathVariable("id") Integer id) {
-        if (!service.paisExists(id)) {
+        if (!service.handleAlreadyExistById(id)) {
             throw new EntityNotFoundException("Pais not found");
         }
-        service.deletePaisById(id);
+        service.handleDeleteById(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 

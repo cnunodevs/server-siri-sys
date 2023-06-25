@@ -37,7 +37,7 @@ public class UsuariosController {
 
     @GetMapping("list/all")
     public ResponseEntity<List<Usuario>> handleListAllRegisters() {
-        List<Usuario> listPOJO = service.getAllUsuarios();
+        List<Usuario> listPOJO = service.handleListAll();
         return ResponseEntity.status(HttpStatus.OK).body(listPOJO);
     }
 
@@ -46,16 +46,16 @@ public class UsuariosController {
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "9") Integer size) {
         Pageable paging = PageRequest.of(page, size);
-        Page<Usuario> listPOJO = service.getAllUsuariosPaginated(paging);
+        Page<Usuario> listPOJO = service.handleFindAllPaginate(paging);
         return ResponseEntity.status(HttpStatus.OK).body(listPOJO);
     }
 
     @PostMapping("create")
     public ResponseEntity<HttpStatus> handleCreateNewRegister(@RequestBody Usuario usuario) {
-        if (service.usuarioExists(usuario.getId())) {
+        if (service.handleAlreadyExistById(usuario.getId())) {
             throw new IllegalStateException("Usuario already exists");
         }
-        service.createUsuario(usuario);
+        service.handleCreateNewRegister(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -63,20 +63,20 @@ public class UsuariosController {
     public ResponseEntity<HttpStatus> handleUpdateRegister(
             @RequestBody Usuario usuario,
             @PathVariable("id") Integer id) {
-        if (!service.usuarioExists(id)) {
+        if (!service.handleAlreadyExistById(id)) {
             throw new EntityNotFoundException("Usuario not found");
         }
         usuario.setId(id);
-        service.updateUsuario(usuario);
+        service.handleUpdate(usuario);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @DeleteMapping("delete/by-id/{id}")
     public ResponseEntity<HttpStatus> handleDeleteRegisterById(@PathVariable("id") Integer id) {
-        if (!service.usuarioExists(id)) {
+        if (!service.handleAlreadyExistById(id)) {
             throw new EntityNotFoundException("Usuario not found");
         }
-        service.deleteUsuarioById(id);
+        service.handleDeleteById(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
