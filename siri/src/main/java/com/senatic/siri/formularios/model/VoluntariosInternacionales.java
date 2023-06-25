@@ -32,9 +32,6 @@ public class VoluntariosInternacionales {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long no;
-
     @Column(length = 70, nullable = false)
     private String nombre;
 
@@ -52,17 +49,14 @@ public class VoluntariosInternacionales {
 
     @ManyToOne
     @JoinColumn(name = "pais_fk")
-    @Column(nullable = false)
     private Pais pais;
 
     @ManyToOne
     @JoinColumn(name = "asesor_fk")
-    @Column(nullable = false)
     private Asesor asesor;
 
     @ManyToOne
     @JoinColumn(name = "convenio_fk")
-    @Column(nullable = false)
     private Convenio convenio;
 
 }

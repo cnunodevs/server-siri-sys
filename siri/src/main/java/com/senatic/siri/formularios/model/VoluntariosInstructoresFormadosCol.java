@@ -29,19 +29,26 @@ public class VoluntariosInstructoresFormadosCol {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
+
   @Column(length = 250, nullable = false)
   private String objetoFormacion;
+
   @ManyToOne
   @JoinColumn(name = "institucion_fk")
   private Institucion institucionFormadoraExt;
+
   @Column(length = 70, nullable = false)
   private String nombre;
+
   @Column(length = 70, nullable = false)
   private String apellido;
+
   @Column(nullable = false)
   private Date fechaInicial;
+
   @Column(nullable = false)
   private Date fechaFinal;
+  
   @ManyToOne
   @JoinColumn(name = "convenio_fk")
   private Convenio convenio;

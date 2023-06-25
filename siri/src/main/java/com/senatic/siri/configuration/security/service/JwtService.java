@@ -1,7 +1,5 @@
 package com.senatic.siri.configuration.security.service;
 
-import lombok.RequiredArgsConstructor;
-
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
@@ -20,11 +18,14 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
 @Service
-@RequiredArgsConstructor
 public class JwtService {
 
     private final String SECRET_KEY = SecurityConstants.JWT_KEY;
     private final UsuariosRepository usuariosRepository;
+
+    public JwtService(UsuariosRepository usuariosRepository) {
+      this.usuariosRepository = usuariosRepository;
+    }
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);

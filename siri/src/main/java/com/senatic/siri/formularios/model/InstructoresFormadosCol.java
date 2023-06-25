@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,12 +28,23 @@ public class InstructoresFormadosCol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String objetoFormacion;
+
+    @ManyToOne
+    @JoinColumn(name = "institucion_fk")
     private Institucion institucionFormadoraExt;
+
     private String nombre;
+
     private String apellido;
+
     private Date fechaInicial;
+    
     private Date fechaFinal;
+
+    @ManyToOne
+    @JoinColumn(name = "convenio_fk")
     private Convenio convenio;
     
 }

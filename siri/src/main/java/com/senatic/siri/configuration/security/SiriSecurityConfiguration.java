@@ -34,10 +34,9 @@ public class SiriSecurityConfiguration {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
-                .cors().configurationSource(new CorsConfigurationSource() {
+                .cors(cors -> cors.configurationSource(new CorsConfigurationSource() {
                     @Override
                     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                         CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -49,8 +48,7 @@ public class SiriSecurityConfiguration {
                         corsConfiguration.setMaxAge(3600L);
                         return corsConfiguration;
                     }
-                })
-                .and()
+                }))
                 .csrf().disable()
                 .addFilterBefore(jwtAuthenticationFilter, BasicAuthenticationFilter.class)
                 .authorizeHttpRequests()
@@ -64,10 +62,10 @@ public class SiriSecurityConfiguration {
                 .hasRole("ADMINISTRADOR")
                 .requestMatchers("api/v1/auth**", "api/v1/usuarios/new-user**", "api/v1/usuarios**").permitAll()
                 .and()
-                .logout()
-                .logoutUrl("/api/v1/auth/logout").permitAll()
-                .addLogoutHandler(logoutHandler)
-                .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext());
+                .logout(logout -> logout
+                        .logoutUrl("/api/v1/auth/logout").permitAll()
+                        .addLogoutHandler(logoutHandler)
+                        .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext()));
 
         return http.build();
     }

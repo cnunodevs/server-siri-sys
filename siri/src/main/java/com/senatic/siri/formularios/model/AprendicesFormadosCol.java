@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +35,8 @@ public class AprendicesFormadosCol {
     private String objetoTransferencia;
     private Date fechaInicial;
     private Date fechaFinal;
+    @ManyToOne
+    @JoinColumn(name = "convenio_fk")
     private Convenio convenio;
     
 }
