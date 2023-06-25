@@ -8,11 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -28,7 +26,6 @@ import jakarta.servlet.http.HttpServletRequest;
 public class SiriSecurityConfiguration {
 
     private final JwtFilter jwtAuthenticationFilter;
-    private final LogoutHandler logoutHandler;
     @Value("${client.origin.allowedOrigins}")
     private String allowedOrigins;
 
@@ -60,12 +57,7 @@ public class SiriSecurityConfiguration {
                 .hasRole("ADMINISTRADOR")
                 .requestMatchers(HttpMethod.DELETE, "api/v1/aprendices-ext/**", "api/v1/aprendices-formados-col/**", "api/v1/expertos-internacionales/**", "api/v1/instructores-ext/**", "api/v1/instructores-formados-col/**", "api/v1/personal-apoyo-ext/**", "api/v1/voluntarios-aprendices-formados-col/**", "api/v1/voluntarios-instructores-formados-col/**", "api/v1/voluntarios-internacionales/**")
                 .hasRole("ADMINISTRADOR")
-                .requestMatchers("api/v1/auth**", "api/v1/usuarios/new-user**", "api/v1/usuarios**").permitAll()
-                .and()
-                .logout(logout -> logout
-                        .logoutUrl("/api/v1/auth/logout").permitAll()
-                        .addLogoutHandler(logoutHandler)
-                        .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext()));
+                .requestMatchers("api/v1/auth**", "api/v1/usuarios/new-user**", "api/v1/usuarios**").permitAll();
 
         return http.build();
     }
