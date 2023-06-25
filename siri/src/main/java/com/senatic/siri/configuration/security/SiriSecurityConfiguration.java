@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,11 +14,10 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-import com.senatic.siri.configuration.security.filter.*;
-
-import lombok.RequiredArgsConstructor;
+import com.senatic.siri.configuration.security.filter.JwtFilter;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 
 @Configuration
 @RequiredArgsConstructor
@@ -49,15 +47,17 @@ public class SiriSecurityConfiguration {
                 .csrf().disable()
                 .addFilterBefore(jwtAuthenticationFilter, BasicAuthenticationFilter.class)
                 .authorizeHttpRequests()
-                .requestMatchers("api/v1/aprendices-ext/paginate", "api/v1/aprendices-formados-col/paginate", "api/v1/expertos-internacionales/paginate", "api/v1/instructores-ext/paginate", "api/v1/instructores-formados-col/paginate", "api/v1/personal-apoyo-ext/paginate", "api/v1/voluntarios-aprendices-formados-col/paginate", "api/v1/voluntarios-instructores-formados-col/paginate", "api/v1/voluntarios-internacionales/paginate", "api/v1/aprendices-ext/search", "api/v1/aprendices-formados-col/search", "api/v1/expertos-internacionales/search", "api/v1/instructores-ext/search", "api/v1/instructores-formados-col/search", "api/v1/personal-apoyo-ext/search", "api/v1/voluntarios-aprendices-formados-col/search", "api/v1/voluntarios-instructores-formados-col/search", "api/v1/voluntarios-internacionales/search")
-                .hasAnyRole("USUARIO", "SUPERVISOR", "ADMINISTRADOR")
-                .requestMatchers(HttpMethod.POST, "api/v1/aprendices-ext/**", "api/v1/aprendices-formados-col/**", "api/v1/expertos-internacionales/**", "api/v1/instructores-ext/**", "api/v1/instructores-formados-col/**", "api/v1/personal-apoyo-ext/**", "api/v1/voluntarios-aprendices-formados-col/**", "api/v1/voluntarios-instructores-formados-col/**", "api/v1/voluntarios-internacionales/**").hasAnyRole("SUPERVISOR", "ADMINISTRADOR")
-                .requestMatchers(HttpMethod.PUT, "api/v1/aprendices-ext", "api/v1/aprendices-formados-col", "api/v1/expertos-internacionales", "api/v1/instructores-ext", "api/v1/instructores-formados-col", "api/v1/personal-apoyo-ext", "api/v1/voluntarios-aprendices-formados-col", "api/v1/voluntarios-instructores-formados-col", "api/v1/voluntarios-internacionales").hasAnyRole("SUPERVISOR", "ADMINISTRADOR")
-                .requestMatchers("api/v1/pais/**", "api/v1/convenios/**", "api/v1/asesores/**", "api/v1/instituciones/**")
-                .hasRole("ADMINISTRADOR")
-                .requestMatchers(HttpMethod.DELETE, "api/v1/aprendices-ext/**", "api/v1/aprendices-formados-col/**", "api/v1/expertos-internacionales/**", "api/v1/instructores-ext/**", "api/v1/instructores-formados-col/**", "api/v1/personal-apoyo-ext/**", "api/v1/voluntarios-aprendices-formados-col/**", "api/v1/voluntarios-instructores-formados-col/**", "api/v1/voluntarios-internacionales/**")
-                .hasRole("ADMINISTRADOR")
-                .requestMatchers("api/v1/auth**", "api/v1/usuarios/new-user**", "api/v1/usuarios**").permitAll();
+                // .requestMatchers("api/v1/aprendices-ext/paginate", "api/v1/aprendices-formados-col/paginate", "api/v1/expertos-internacionales/paginate", "api/v1/instructores-ext/paginate", "api/v1/instructores-formados-col/paginate", "api/v1/personal-apoyo-ext/paginate", "api/v1/voluntarios-aprendices-formados-col/paginate", "api/v1/voluntarios-instructores-formados-col/paginate", "api/v1/voluntarios-internacionales/paginate", "api/v1/aprendices-ext/search", "api/v1/aprendices-formados-col/search", "api/v1/expertos-internacionales/search", "api/v1/instructores-ext/search", "api/v1/instructores-formados-col/search", "api/v1/personal-apoyo-ext/search", "api/v1/voluntarios-aprendices-formados-col/search", "api/v1/voluntarios-instructores-formados-col/search", "api/v1/voluntarios-internacionales/search")
+                // .hasAnyRole("USUARIO", "SUPERVISOR", "ADMINISTRADOR")
+                // .requestMatchers(HttpMethod.POST, "api/v1/aprendices-ext/**", "api/v1/aprendices-formados-col/**", "api/v1/expertos-internacionales/**", "api/v1/instructores-ext/**", "api/v1/instructores-formados-col/**", "api/v1/personal-apoyo-ext/**", "api/v1/voluntarios-aprendices-formados-col/**", "api/v1/voluntarios-instructores-formados-col/**", "api/v1/voluntarios-internacionales/**").hasAnyRole("SUPERVISOR", "ADMINISTRADOR")
+                // .requestMatchers(HttpMethod.PUT, "api/v1/aprendices-ext", "api/v1/aprendices-formados-col", "api/v1/expertos-internacionales", "api/v1/instructores-ext", "api/v1/instructores-formados-col", "api/v1/personal-apoyo-ext", "api/v1/voluntarios-aprendices-formados-col", "api/v1/voluntarios-instructores-formados-col", "api/v1/voluntarios-internacionales").hasAnyRole("SUPERVISOR", "ADMINISTRADOR")
+                // .requestMatchers("api/v1/pais/**", "api/v1/convenios/**", "api/v1/asesores/**", "api/v1/instituciones/**")
+                // .hasRole("ADMINISTRADOR")
+                // .requestMatchers(HttpMethod.DELETE, "api/v1/aprendices-ext/**", "api/v1/aprendices-formados-col/**", "api/v1/expertos-internacionales/**", "api/v1/instructores-ext/**", "api/v1/instructores-formados-col/**", "api/v1/personal-apoyo-ext/**", "api/v1/voluntarios-aprendices-formados-col/**", "api/v1/voluntarios-instructores-formados-col/**", "api/v1/voluntarios-internacionales/**")
+                // .hasRole("ADMINISTRADOR")
+                // .requestMatchers("api/v1/auth**", "api/v1/usuarios/new-user**", "api/v1/usuarios**")
+                .anyRequest()
+                .permitAll();
 
         return http.build();
     }
