@@ -23,68 +23,56 @@ public class PaisesService implements GenericUseCases<Pais, Integer> {
 
     @Override
     public List<Pais> handleListAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleListAll'");
+        return repository.findAll();
     }
 
     @Override
     public void handleUpdate(Pais t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
+        repository.save(t);
     }
 
     @Override
     public void handleDelete(Pais t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
+        repository.delete(t);
     }
 
     @Override
     public void handleDeleteById(Integer u) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDeleteById'");
+        repository.deleteById(u);
     }
 
     @Override
     public Page<Pais> handleFindAllPaginateByExample(Example<Pais> example, Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
+        return repository.findAll(example, pageable);
     }
 
     @Override
     public List<Pais> handleFindAllByExample(Example<Pais> example) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllByExample'");
+        return repository.findAll(example);
     }
 
     @Override
     public Page<Pais> handleFindAllPaginate(Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
+        return repository.findAll(pageable);
     }
 
     @Override
     public Boolean handleAlreadyExist(Pais t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
+        return repository.exists(Example.of(t));
     }
 
     @Override
     public Boolean handleAlreadyExistById(Integer u) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExistById'");
+        return repository.existsById(u);
     }
 
     @Override
     public void handleCreateNewRegister(Pais t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewRegister'");
+        repository.save(t);
     }
 
     @Override
     public void handleCreateNewListOfRegisters(List<Pais> list) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewListOfRegisters'");
+        repository.saveAll(list);
     }
-    
 }

@@ -23,69 +23,56 @@ public class ConveniosService implements GenericUseCases<Convenio, Integer> {
 
     @Override
     public List<Convenio> handleListAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleListAll'");
+        return repository.findAll();
     }
 
     @Override
     public void handleUpdate(Convenio t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleUpdate'");
+        repository.save(t);
     }
 
     @Override
     public void handleDelete(Convenio t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDelete'");
+        repository.delete(t);
     }
 
     @Override
     public void handleDeleteById(Integer u) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleDeleteById'");
+        repository.deleteById(u);
     }
 
     @Override
     public Page<Convenio> handleFindAllPaginateByExample(Example<Convenio> example, Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginateByExample'");
+        return repository.findAll(example, pageable);
     }
 
     @Override
     public List<Convenio> handleFindAllByExample(Example<Convenio> example) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllByExample'");
+        return repository.findAll(example);
     }
 
     @Override
     public Page<Convenio> handleFindAllPaginate(Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleFindAllPaginate'");
+        return repository.findAll(pageable);
     }
 
     @Override
     public Boolean handleAlreadyExist(Convenio t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExist'");
+        return repository.exists(Example.of(t));
     }
 
     @Override
     public Boolean handleAlreadyExistById(Integer u) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleAlreadyExistById'");
+        return repository.existsById(u);
     }
 
     @Override
     public void handleCreateNewRegister(Convenio t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewRegister'");
+        repository.save(t);
     }
 
     @Override
     public void handleCreateNewListOfRegisters(List<Convenio> list) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleCreateNewListOfRegisters'");
+        repository.saveAll(list);
     }
-
-    
 }
