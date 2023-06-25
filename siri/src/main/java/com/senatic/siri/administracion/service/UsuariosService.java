@@ -1,11 +1,13 @@
 package com.senatic.siri.administracion.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.senatic.siri.administracion.model.Usuario;
 import com.senatic.siri.administracion.repository.UsuariosRepository;
@@ -20,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 public class UsuariosService implements GenericUseCases<Usuario, Integer> {
 
     private final UsuariosRepository repository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public List<Usuario> handleListAll() {
@@ -68,11 +71,20 @@ public class UsuariosService implements GenericUseCases<Usuario, Integer> {
 
     @Override
     public void handleCreateNewRegister(Usuario t) {
+        t.setPassword(passwordEncoder.encode(t.getPassword()));
         repository.save(t);
     }
 
     @Override
     public void handleCreateNewListOfRegisters(List<Usuario> list) {
         repository.saveAll(list);
+    }
+
+    public Optional<Usuario> findByUsername(String username) {
+        return repository.findFirstByUsername(username);
+    }
+
+    public Boolean usernameAlreadyExist(String username) {
+        return repository.exists(Example.of(Usuario.builder().username(username).build()));
     }
 }

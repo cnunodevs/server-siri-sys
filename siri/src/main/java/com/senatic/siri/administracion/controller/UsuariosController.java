@@ -1,6 +1,7 @@
 package com.senatic.siri.administracion.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.data.domain.Page;
@@ -33,6 +34,21 @@ public class UsuariosController {
 
     public UsuariosController(UsuariosService service) {
         this.service = service;
+    }
+
+    @GetMapping("/details/{username}")
+    public ResponseEntity<Integer> getUserDetailsByUsername(@PathVariable String username) throws EntityNotFoundException {
+        final Optional<Usuario> optional = service.findByUsername(username);
+        if(optional.isEmpty()){
+            throw new EntityNotFoundException("Usuario do not exist: Username -> " + username);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(optional.get().getId());
+    }
+
+    @GetMapping
+    public ResponseEntity<Boolean> usernameAlreadyExist(@RequestParam String username) {
+        final Boolean alreadyExist = service.usernameAlreadyExist(username);
+        return ResponseEntity.status(HttpStatus.OK).body(alreadyExist);
     }
 
     @GetMapping("list/all")
