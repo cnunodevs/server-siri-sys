@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "institucion", uniqueConstraints = @UniqueConstraint(columnNames = "codigo"))
+@Table(name = "instituciones", uniqueConstraints = @UniqueConstraint(columnNames = "codigo"))
 public class Institucion {
     
     @Id
