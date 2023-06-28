@@ -1,6 +1,8 @@
 package com.senatic.siri.formularios.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import com.senatic.siri.administracion.model.Convenio;
 import com.senatic.siri.administracion.model.Institucion;
@@ -58,5 +60,17 @@ public class InstructoresExt {
     @ManyToOne
     @JoinColumn(name = "convenio_fk")
     private Convenio convenio;
+
+    public InstructoresExt(List<String> fields) {
+        this.nombre = fields.get(0);
+        this.objeto = fields.get(1);
+        this.coordinacionAcademica = fields.get(2);
+        this.contratista = fields.get(3);
+        this.fechaInicio = LocalDateTime.parse(fields.get(4), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        this.fechaFinal = LocalDateTime.parse(fields.get(5), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        this.pais = Pais.builder().nombre(fields.get(5)).build();
+        this.institucion = Institucion.builder().nombre(fields.get(6)).build();
+        this.convenio = Convenio.builder().codigo(fields.get(7)).build();
+    }
 
 }

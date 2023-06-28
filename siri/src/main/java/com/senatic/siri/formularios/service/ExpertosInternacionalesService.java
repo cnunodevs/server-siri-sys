@@ -1,15 +1,27 @@
 package com.senatic.siri.formularios.service;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.senatic.siri.administracion.model.Asesor;
+import com.senatic.siri.administracion.model.Convenio;
+import com.senatic.siri.administracion.model.Institucion;
+import com.senatic.siri.administracion.model.Pais;
+import com.senatic.siri.administracion.repository.AsesoresRepository;
+import com.senatic.siri.administracion.repository.ConveniosRepository;
+import com.senatic.siri.administracion.repository.InstitucionesRepository;
+import com.senatic.siri.administracion.repository.PaisesRepository;
 import com.senatic.siri.common.GenericUseCases;
 import com.senatic.siri.formularios.model.ExpertosInternacionales;
 import com.senatic.siri.formularios.repository.ExpertosInternacionalesRepository;
+import com.senatic.siri.utils.ExcelFileConverter;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +32,10 @@ import lombok.RequiredArgsConstructor;
 public class ExpertosInternacionalesService implements GenericUseCases<ExpertosInternacionales, Integer> {
 
     private final ExpertosInternacionalesRepository repository;
+    private final PaisesRepository paisesRepository;
+    private final InstitucionesRepository institucionesRepository;
+    private final AsesoresRepository asesoresRepository;
+    private final ConveniosRepository conveniosRepository;
 
     @Override
     public List<ExpertosInternacionales> handleListAll() {
@@ -75,5 +91,26 @@ public class ExpertosInternacionalesService implements GenericUseCases<ExpertosI
     @Override
     public void handleCreateNewListOfRegisters(List<ExpertosInternacionales> list) {
         repository.saveAll(list);
+    }    
+
+    @Override
+    public void handleUploadExcelFile(MultipartFile multipartFile) throws IOException {
+        List<List<String>> matrix = ExcelFileConverter.convertSheetInMatrix(multipartFile);
+        List<ExpertosInternacionales> allEntities = new ArrayList<>();
+        matrix.forEach(rowListed -> allEntities.add(new ExpertosInternacionales(rowListed)));
+        allEntities.forEach(entity -> {
+            Example<Institucion> institucionExmpl = Example.of(entity.getInstitucion());
+            Example<Asesor> asesorExmpl = Example.of(entity.getAsesor());
+            Example<Pais> paisExmpl = Example.of(entity.getPais());
+            Example<Convenio> convenioExmpl = Example.of(entity.getConvenio());
+            entity.setInstitucion(institucionesRepository.findOne(institucionExmpl).orElse(null));
+            entity.setPais(paisesRepository.findOne(paisExmpl).orElse(null));
+            entity.setConvenio(conveniosRepository.findOne(convenioExmpl).orElse(null));
+            entity.setAsesor(asesoresRepository.findOne(asesorExmpl).orElse(null));
+        });
+        repository.saveAll(allEntities);
     }
+
+   
+
 }

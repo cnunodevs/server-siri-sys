@@ -1,9 +1,12 @@
 package com.senatic.siri.formularios.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import com.senatic.siri.administracion.model.Asesor;
 import com.senatic.siri.administracion.model.Convenio;
+import com.senatic.siri.administracion.model.Institucion;
 import com.senatic.siri.administracion.model.Pais;
 
 import jakarta.persistence.Column;
@@ -58,5 +61,16 @@ public class VoluntariosInternacionales {
     @ManyToOne
     @JoinColumn(name = "convenio_fk")
     private Convenio convenio;
+
+    public VoluntariosInternacionales(List<String> fields) {
+        this.nombre = fields.get(0);
+        this.objeto = fields.get(1);
+        this.centroFormacion = fields.get(2);
+        this.fechaInicio = LocalDateTime.parse(fields.get(3), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        this.fechaFinal = LocalDateTime.parse(fields.get(4), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        this.pais = Pais.builder().nombre(fields.get(5)).build();
+        this.asesor = Asesor.builder().nombre(fields.get(8)).build();
+        this.convenio = Convenio.builder().codigo(fields.get(7)).build();
+    }
 
 }

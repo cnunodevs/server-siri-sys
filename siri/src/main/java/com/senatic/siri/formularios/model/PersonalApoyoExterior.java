@@ -1,6 +1,8 @@
 package com.senatic.siri.formularios.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import com.senatic.siri.administracion.model.Asesor;
 import com.senatic.siri.administracion.model.Institucion;
@@ -56,5 +58,15 @@ public class PersonalApoyoExterior {
     @ManyToOne
     @JoinColumn(name = "asesor_fk")
     private Asesor asesor;
+
+    public PersonalApoyoExterior(List<String> fields) {
+        this.objeto = fields.get(0);
+        this.nombre = fields.get(1);
+        this.cargo = fields.get(2);
+        this.dependenciaSena = fields.get(3);
+        this.fechaInicio = LocalDateTime.parse(fields.get(4), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        this.fechaFinal = LocalDateTime.parse(fields.get(5), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        this.asesor = Asesor.builder().nombre(fields.get(6)).build();
+    }
 
 }

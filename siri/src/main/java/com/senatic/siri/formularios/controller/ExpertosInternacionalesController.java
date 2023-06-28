@@ -1,6 +1,7 @@
 package com.senatic.siri.formularios.controller;
 
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.senatic.siri.formularios.model.ExpertosInternacionales;
 import com.senatic.siri.formularios.service.ExpertosInternacionalesService;
@@ -60,6 +62,12 @@ public class ExpertosInternacionalesController {
             throw new IllegalStateException("Exception message");
         }
         service.handleCreateNewRegister(pojo);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PostMapping("upload-file")
+    public ResponseEntity<HttpStatus> handleUploadMasiveData(MultipartFile file) throws IOException {
+        service.handleUploadExcelFile(file);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
