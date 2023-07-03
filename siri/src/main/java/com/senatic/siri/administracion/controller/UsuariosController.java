@@ -28,7 +28,6 @@ import com.senatic.siri.administracion.service.UsuariosService;
 import jakarta.persistence.EntityNotFoundException;
 
 @RestController
-@CrossOrigin
 @RequestMapping("api/v1/usuarios")
 public class UsuariosController {
 

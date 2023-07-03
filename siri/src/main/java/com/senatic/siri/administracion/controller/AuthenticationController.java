@@ -15,7 +15,6 @@ import com.senatic.siri.configuration.security.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@CrossOrigin
 @RequiredArgsConstructor
 @RequestMapping("api/v1/auth")
 public class AuthenticationController {

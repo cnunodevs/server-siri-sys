@@ -27,7 +27,7 @@ import com.senatic.siri.reportes.service.ReportesService;
 import jakarta.persistence.EntityNotFoundException;
 
 @RestController
-@CrossOrigin
+
 @RequestMapping("api/v1/reportes")
 public class ReportesController {
 

@@ -27,7 +27,6 @@ import com.senatic.siri.administracion.service.AsesoresService;
 import jakarta.persistence.EntityNotFoundException;
 
 @RestController
-@CrossOrigin
 @RequestMapping("api/v1/asesores")
 public class AsesoresController {
 

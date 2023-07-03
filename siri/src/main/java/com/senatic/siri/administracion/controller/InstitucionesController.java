@@ -27,7 +27,6 @@ import com.senatic.siri.administracion.service.InstitucionesService;
 import jakarta.persistence.EntityNotFoundException;
 
 @RestController
-@CrossOrigin
 @RequestMapping("api/v1/instituciones")
 public class InstitucionesController {
 

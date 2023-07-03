@@ -27,7 +27,6 @@ import com.senatic.siri.administracion.service.PaisesService;
 import jakarta.persistence.EntityNotFoundException;
 
 @RestController
-@CrossOrigin
 @RequestMapping("api/v1/paises")
 public class PaisesController {
 

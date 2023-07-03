@@ -32,7 +32,7 @@ import lombok.RequiredArgsConstructor;
 
 @Validated
 @RestController
-@CrossOrigin
+
 @RequiredArgsConstructor
 @RequestMapping("api/v1/aprendices-ext")
 public class AprendicesExtController {

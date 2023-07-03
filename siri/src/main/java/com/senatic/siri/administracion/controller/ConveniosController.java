@@ -27,7 +27,6 @@ import com.senatic.siri.administracion.service.ConveniosService;
 import jakarta.persistence.EntityNotFoundException;
 
 @RestController
-@CrossOrigin
 @RequestMapping("api/v1/convenios")
 public class ConveniosController {
 
