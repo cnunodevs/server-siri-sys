@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.senatic.siri.administracion.model.Convenio;
-import com.senatic.siri.administracion.model.Institucion;
-import com.senatic.siri.administracion.model.Pais;
 import com.senatic.siri.administracion.repository.ConveniosRepository;
 import com.senatic.siri.common.GenericUseCases;
 import com.senatic.siri.formularios.model.InstructoresFormadosCol;

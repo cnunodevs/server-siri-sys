@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.senatic.siri.administracion.model.Asesor;
 import com.senatic.siri.administracion.model.Convenio;
-import com.senatic.siri.administracion.model.Institucion;
 import com.senatic.siri.administracion.model.Pais;
 
 import jakarta.persistence.Column;
