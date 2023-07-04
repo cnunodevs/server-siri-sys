@@ -1,6 +1,5 @@
 package com.senatic.siri.exception;
 
-import java.io.IOException;
 import java.time.DateTimeException;
 
 import org.slf4j.Logger;
