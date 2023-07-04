@@ -49,8 +49,8 @@ public class SiriSecurityConfiguration {
                 .csrf().disable()
                 .addFilterBefore(jwtAuthenticationFilter, BasicAuthenticationFilter.class)
                 .authorizeHttpRequests()
-                .anyRequest().authenticated()
-                .requestMatchers("api/v1/auth**", "api/v1/usuarios/new-user**", "api/v1/usuarios**").permitAll();
+                .requestMatchers("api/v1/auth**", "api/v1/usuarios/new-user**", "api/v1/usuarios**").permitAll()
+                .anyRequest().authenticated();
         return http.build();
     }
 
